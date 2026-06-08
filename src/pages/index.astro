@@ -455,7 +455,7 @@ const tarifs = [
           </div>
 
           <div class="lg:col-span-6 lg:col-start-7">
-            <form class="space-y-5" name="contact" method="POST" data-netlify="true" action="/">
+            <form id="contact-form" class="space-y-5" name="contact">
               <div class="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label class="block text-xs mb-2" style="color: rgba(250,248,245,0.45); letter-spacing:0.1em; text-transform:uppercase;">Prénom</label>
@@ -490,6 +490,7 @@ const tarifs = [
               <button type="submit" class="w-full py-4 text-sm font-medium tracking-widest uppercase transition-all" style="background: var(--color-accent); color: #fff; border-radius: 1px; letter-spacing: 0.15em;">
                 Envoyer ma demande
               </button>
+              <p class="text-xs text-center" style="color: rgba(250,248,245,0.35);">Le bouton ouvre votre messagerie avec le message pré-rempli.</p>
             </form>
           </div>
         </div>

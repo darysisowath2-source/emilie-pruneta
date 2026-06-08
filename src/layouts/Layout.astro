@@ -12,7 +12,7 @@ const {
 } = Astro.props
 
 const SITE = (Astro.site?.href || 'https://emilie-pruneta.pages.dev/').replace(/\/$/, '')
-const ogImage = 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=1200&q=80'
+const ogImage = 'https://static.wixstatic.com/media/054844_ea8fc02bdcbb4ae797f76da85ffe839c~mv2.jpg/v1/fill/w_1200,h_630,fp_0.5_0.4,q_90,enc_avif,quality_auto/ep.jpg'
 const canonical = SITE + Astro.url.pathname
 ---
 <!doctype html>
@@ -38,7 +38,7 @@ const canonical = SITE + Astro.url.pathname
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="800" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={ogImage} />
@@ -81,6 +81,22 @@ const canonical = SITE + Astro.url.pathname
       } else {
         allTargets.forEach((el) => el.classList.add('is-visible'));
       }
+    </script>
+
+    <script>
+      // Formulaire de contact -> ouvre la messagerie pré-remplie (mailto)
+      const form = document.getElementById('contact-form') as HTMLFormElement | null;
+      form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const prenom = (data.get('prenom') || '').toString();
+        const email = (data.get('email') || '').toString();
+        const projet = (data.get('projet') || '').toString();
+        const message = (data.get('message') || '').toString();
+        const sujet = `Demande ${projet ? '· ' + projet : 'de contact'} — ${prenom}`;
+        const corps = `Bonjour Emilie,\n\n${message}\n\n— ${prenom}\nEmail : ${email}\nProjet : ${projet || 'non précisé'}`;
+        window.location.href = `mailto:emilie@emiliepruneta.com?subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(corps)}`;
+      });
     </script>
 
     <script>
