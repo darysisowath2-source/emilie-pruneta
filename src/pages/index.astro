@@ -3,16 +3,17 @@ import Layout from '../layouts/Layout.astro'
 import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
 
-// Photos Unsplash verifiees (HEAD 200)
-// A remplacer par les vraies photos d'Emilie
-const hero     = 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=1800&q=85'
-const img2     = 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1400&q=80'
-const img3     = 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1400&q=80'
-const imgFam1  = 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80'
-const imgFam2  = 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=900&q=80'
-const imgFam3  = 'https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=900&q=80'
-const imgFam4  = 'https://images.unsplash.com/photo-1476703993599-0035a21b17a9?auto=format&fit=crop&w=900&q=80'
-const imgEmilie = 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80'
+// Photos reelles scrapees depuis emiliepruneta.com (wixstatic CDN, toutes verifiees 200)
+const BASE = 'https://static.wixstatic.com/media'
+const hero      = `${BASE}/054844_024a583a5c674dab9db20b46fe34f983~mv2.jpg/v1/fill/w_1800,h_1000,fp_0.51_0.24,q_90,enc_avif,quality_auto/ep.jpg`
+const img2      = `${BASE}/054844_57106e83d1f84fd3ba946d05be873c45~mv2.jpg/v1/fill/w_900,h_1200,fp_0.66_0.37,q_90,enc_avif,quality_auto/ep.jpg`
+const img3      = `${BASE}/054844_b12f64fb940740acaaa0ec88dda41e8d~mv2.jpg/v1/fill/w_900,h_1200,fp_0.47_0.26,q_90,enc_avif,quality_auto/ep.jpg`
+const imgBig    = `${BASE}/054844_5f3021aa63c24bc98ad3976e9caace6f~mv2.jpg/v1/fill/w_1600,h_900,fp_0.48_0.37,q_90,enc_avif,quality_auto/ep.jpg`
+const imgFam1   = `${BASE}/054844_1f805cd6e6034bfe844fc7cf12acfd25~mv2.jpg/v1/fill/w_700,h_933,fp_0.41_0.22,q_90,enc_avif,quality_auto/ep.jpg`
+const imgFam2   = `${BASE}/054844_748b01f672f84c3fae7b06b8c5c1b9ef.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`
+const imgFam3   = `${BASE}/054844_034c92095d0e4db0987dddee5b255cb7~mv2.jpg/v1/fill/w_700,h_933,fp_0.43_0.4,q_90,enc_avif,quality_auto/ep.jpg`
+const imgFam4   = `${BASE}/054844_b9f9ae617f36436096bc6c9d2b4103d6~mv2.jpg/v1/fill/w_700,h_933,fp_0.59_0.31,q_90,enc_avif,quality_auto/ep.jpg`
+const imgEmilie = `${BASE}/054844_403fa8728ab94f879bae2f087e75077e~mv2.jpg/v1/fill/w_800,h_1067,al_c,q_90,enc_avif,quality_auto/ep.jpg`
 
 const temoignages = [
   {
@@ -33,10 +34,10 @@ const temoignages = [
 ]
 
 const etapes = [
-  { n: '01', titre: 'Premier contact', texte: "On échange par mail ou téléphone. Vous me parlez de votre projet, je vous présente mon approche. Pas de formalité, juste une vraie conversation." },
-  { n: '02', titre: 'On se rencontre', texte: "Pour les mariages, je propose un appel vidéo ou une rencontre autour d'un café. L'objectif : qu'on se connaisse vraiment avant le grand jour." },
-  { n: '03', titre: 'La séance', texte: "Je suis discrète, bienveillante, je guide sans diriger. Mon rôle : vous faire oublier mon appareil pour que l'émotion s'exprime librement." },
-  { n: '04', titre: 'Les photos', texte: "Sous 4 à 8 semaines selon les prestations, vous recevez votre galerie en ligne. Chaque image est retouchée avec soin, dans un style naturel et lumineux." },
+  { label: 'Premier échange', titre: 'On se parle', texte: "Par mail ou téléphone, vous me racontez votre projet. Je vous explique comment je travaille. Pas de formulaire à remplir, juste une conversation." },
+  { label: 'On se découvre', titre: 'Un café, un appel', texte: "Pour les mariages, je propose qu'on se retrouve, en visio ou autour d'un café. C'est important qu'on soit à l'aise l'un avec l'autre avant le grand jour." },
+  { label: 'Le jour J', titre: 'Je suis là', texte: "Discrète, attentive. Je guide quand c'est utile, je m'efface quand l'émotion arrive. Vous vivez votre journée, je fais le reste." },
+  { label: 'Votre galerie', titre: 'Les photos arrivent', texte: "Sous 4 à 8 semaines, vous recevez votre galerie privée en ligne. Chaque image est retouchée à la main, dans un style lumineux et naturel." },
 ]
 ---
 <Layout>
@@ -58,7 +59,7 @@ const etapes = [
         </div>
 
         <h1 class="hero-item font-display italic font-light leading-[1.0] max-w-3xl" style="--hi:1; font-size: var(--text-display-xl); color: var(--color-fg-inv);">
-          Les moments<br/>qui comptent,<br/><em style="font-style:normal; font-weight:300; opacity:0.75;">pour toujours.</em>
+          Ce que vous vivez,<br/>je le garde<br/><em style="font-style:normal; font-weight:300; opacity:0.75;">pour vous.</em>
         </h1>
 
         <p class="hero-item mt-6 max-w-md text-base font-light leading-relaxed" style="--hi:2; color: rgba(250,248,245,0.72);">
@@ -87,17 +88,17 @@ const etapes = [
           </h2>
           <div class="space-y-5 text-base leading-relaxed" style="color: var(--color-muted-strong);">
             <p>
-              Je m'appelle Emilie. Je suis photographe en Corrèze depuis 2012, et ce qui me passionne, c'est de raconter des histoires vraies. Pas des poses figées, pas des sourires forcés : des éclats de rire, des larmes retenues, des mains qui se serrent.
+              Je m'appelle Emilie. Je photographie des mariages, des familles et des naissances en Corrèze depuis 2012. Ce que j'aime dans ce métier, c'est ce qui ne se commande pas : un regard, une main qui serre l'autre, un rire qui éclate au mauvais moment.
             </p>
             <p>
-              Mon approche est documentaire et bienveillante. Je reste en retrait, j'observe, j'anticipe. Et quand l'émotion arrive, elle est là, capturée, pour durer.
+              Je travaille en retrait, sans diriger. J'observe, j'attends, je déclenche quand ça arrive vraiment. Pas de poses répétées, pas de mise en scène. Juste ce qui s'est passé.
             </p>
             <p>
-              Chaque famille, chaque couple est unique. Mon travail, c'est de vous rendre cette unicité.
+              En 12 ans, j'ai photographié des centaines de familles et de couples. Chaque fois, les gens me disent la même chose : ils avaient oublié que j'étais là.
             </p>
           </div>
           <a href="#contact" class="mt-10 inline-flex items-center gap-2 text-sm font-medium" style="color:var(--color-accent);">
-            Parlons de votre projet <span aria-hidden="true">→</span>
+            Me contacter <span aria-hidden="true">→</span>
           </a>
         </div>
       </div>
@@ -144,7 +145,7 @@ const etapes = [
 
     <!-- ══════════ PHOTO BREAK ══════════ -->
     <div class="relative aspect-[21/8] overflow-hidden border-b border-line">
-      <img src={img3} alt="Emilie Pruneta, photographe de mariage en Corrèze" class="w-full h-full object-cover" loading="lazy" style="object-position: center 35%;"/>
+      <img src={imgBig} alt="Emilie Pruneta, photographe de mariage en Corrèze" class="w-full h-full object-cover" loading="lazy" style="object-position: center 35%;"/>
       <div class="absolute inset-0" style="background: rgba(26,22,18,0.45);"></div>
       <div class="absolute inset-0 flex items-center justify-center text-center px-6">
         <blockquote class="font-display italic font-light max-w-2xl" style="font-size: clamp(1.8rem, 4vw, 3.5rem); color: var(--color-fg-inv); line-height: 1.2;">
@@ -179,8 +180,8 @@ const etapes = [
         <div class="mt-14 grid sm:grid-cols-3 gap-px border-y border-line" style="background: var(--color-line);">
           {[
             { titre: 'Famille', texte: 'Enfants qui courent, câlins improvisés, éclats de rire. Je capture votre famille telle qu\'elle est vraiment.' },
-            { titre: 'Grossesse', texte: 'Un moment suspendu, unique. Des images douces et lumineuses pour chérir cette attente pour toujours.' },
-            { titre: 'Nouveau-né', texte: 'Les premières heures, les premiers gestes. Une séance à domicile, dans la douceur et la tranquillité.' },
+            { titre: 'Grossesse', texte: 'Le ventre rond, la lumière du matin. Une séance dehors ou chez vous, à quelques semaines de l\'arrivée.' },
+            { titre: 'Nouveau-né', texte: 'À domicile, dans les premiers jours. On prend le temps, sans brusquer ni mettre en scène.' },
           ].map((p) => (
             <div class="py-10 px-8" style="background: var(--color-bg);">
               <h3 class="font-display italic text-2xl mb-3">{p.titre}</h3>
@@ -198,7 +199,7 @@ const etapes = [
     <!-- ══════════ TEMOIGNAGES ══════════ -->
     <section class="border-b border-line" style="background: var(--color-bg-elev);">
       <div class="max-w-[1280px] mx-auto px-5 sm:px-8 py-20 sm:py-28 reveal-on-scroll">
-        <p class="eyebrow mb-12 text-center">Ils me font confiance</p>
+        <p class="eyebrow mb-12 text-center">Ce qu'ils en disent</p>
         <div class="grid sm:grid-cols-3 gap-px" style="background: var(--color-line);">
           {temoignages.map((t) => (
             <blockquote class="p-8 sm:p-10" style="background: var(--color-bg);">
@@ -220,14 +221,14 @@ const etapes = [
       <div class="max-w-[1280px] mx-auto px-5 sm:px-8 py-20 sm:py-28 reveal-on-scroll">
         <p class="eyebrow mb-4">Le déroulement</p>
         <h2 class="font-display italic font-light leading-[1.1] mb-14" style="font-size: var(--text-h2);">
-          Simple, humain,<br/><em style="font-style:normal; color:var(--color-muted-strong);">sans prise de tête.</em>
+          Comment ça<br/><em style="font-style:normal; color:var(--color-muted-strong);">se passe.</em>
         </h2>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px border-y border-line" style="background: var(--color-line);">
           {etapes.map((e) => (
             <div class="py-10 px-8" style="background: var(--color-bg);">
-              <p class="font-display italic text-5xl font-light mb-6" style="color: var(--color-blush);">{e.n}</p>
-              <h3 class="font-medium text-base mb-3">{e.titre}</h3>
+              <p class="eyebrow mb-5" style="color: var(--color-accent);">{e.label}</p>
+              <h3 class="font-display italic text-xl mb-3">{e.titre}</h3>
               <p class="text-sm leading-relaxed" style="color: var(--color-muted-strong);">{e.texte}</p>
             </div>
           ))}
@@ -244,10 +245,10 @@ const etapes = [
           <div class="lg:col-span-5">
             <p class="eyebrow mb-5" style="color: rgba(250,248,245,0.45);">Contact</p>
             <h2 class="font-display italic font-light leading-[1.1] mb-6" style="font-size: var(--text-h2); color: var(--color-fg-inv);">
-              Votre projet<br/><em style="font-style:normal; color: var(--color-accent);">mérite d'exister.</em>
+              Un projet ?<br/><em style="font-style:normal; color: var(--color-accent);">Écrivez-moi.</em>
             </h2>
             <p class="text-base leading-relaxed mb-10" style="color: rgba(250,248,245,0.60);">
-              Parlez-moi de votre mariage, de votre famille, de votre grossesse. Je vous réponds sous 48h pour qu'on construise quelque chose de beau ensemble.
+              Mariage, famille, grossesse, naissance. Dites-moi la date, le lieu, ce que vous avez en tête. Je réponds sous 48h.
             </p>
             <div class="space-y-3">
               <a href="mailto:emilie@emiliepruneta.com" class="flex items-center gap-3 text-sm transition-colors" style="color: rgba(250,248,245,0.70);">
