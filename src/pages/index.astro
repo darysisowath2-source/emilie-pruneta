@@ -3,41 +3,108 @@ import Layout from '../layouts/Layout.astro'
 import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
 
-// Photos reelles scrapees depuis emiliepruneta.com (wixstatic CDN, toutes verifiees 200)
 const BASE = 'https://static.wixstatic.com/media'
-const hero      = `${BASE}/054844_024a583a5c674dab9db20b46fe34f983~mv2.jpg/v1/fill/w_1800,h_1000,fp_0.51_0.24,q_90,enc_avif,quality_auto/ep.jpg`
-const img2      = `${BASE}/054844_57106e83d1f84fd3ba946d05be873c45~mv2.jpg/v1/fill/w_900,h_1200,fp_0.66_0.37,q_90,enc_avif,quality_auto/ep.jpg`
-const img3      = `${BASE}/054844_b12f64fb940740acaaa0ec88dda41e8d~mv2.jpg/v1/fill/w_900,h_1200,fp_0.47_0.26,q_90,enc_avif,quality_auto/ep.jpg`
-const imgBig    = `${BASE}/054844_5f3021aa63c24bc98ad3976e9caace6f~mv2.jpg/v1/fill/w_1600,h_900,fp_0.48_0.37,q_90,enc_avif,quality_auto/ep.jpg`
-const imgFam1   = `${BASE}/054844_1f805cd6e6034bfe844fc7cf12acfd25~mv2.jpg/v1/fill/w_700,h_933,fp_0.41_0.22,q_90,enc_avif,quality_auto/ep.jpg`
-const imgFam2   = `${BASE}/054844_748b01f672f84c3fae7b06b8c5c1b9ef.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`
-const imgFam3   = `${BASE}/054844_034c92095d0e4db0987dddee5b255cb7~mv2.jpg/v1/fill/w_700,h_933,fp_0.43_0.4,q_90,enc_avif,quality_auto/ep.jpg`
-const imgFam4   = `${BASE}/054844_b9f9ae617f36436096bc6c9d2b4103d6~mv2.jpg/v1/fill/w_700,h_933,fp_0.59_0.31,q_90,enc_avif,quality_auto/ep.jpg`
+
+// -- Mariage (scrapé depuis emiliepruneta.com/mariages) --
+const heroMar  = `${BASE}/054844_ea8fc02bdcbb4ae797f76da85ffe839c~mv2.jpg/v1/fill/w_1800,h_1000,fp_0.5_0.4,q_90,enc_avif,quality_auto/ep.jpg`
+const mar1     = `${BASE}/054844_67e6fd66ba8241b38079f72bd269d106~mv2.jpg/v1/fill/w_900,h_1200,al_c,q_90,enc_avif,quality_auto/ep.jpg`
+const mar2     = `${BASE}/054844_2233cd8462a141478ca6212d5de434da~mv2.jpg/v1/fill/w_1200,h_800,fp_0.48_0.33,q_90,enc_avif,quality_auto/ep.jpg`
+const mar3     = `${BASE}/054844_5ae3b9ef413b4371be0a00736cb5eba0~mv2.jpg/v1/fill/w_900,h_1200,al_c,q_90,enc_avif,quality_auto/ep.jpg`
+const marPano  = `${BASE}/054844_60ff236a7da44164967ae337c05163d1~mv2.jpg/v1/fill/w_1800,h_700,fp_0.5_0.4,q_90,enc_avif,quality_auto/ep.jpg`
+
+// -- Famille · Grossesse · Nouveau-né (scrapé depuis emiliepruneta.com/famille) --
+const fam1     = `${BASE}/054844_249b6158106f40bd89930907f5d7557d~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`
+const fam2     = `${BASE}/054844_e9140ae01f9e40ffae2ae23a8cbe2b35~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`
+const fam3     = `${BASE}/054844_43875514d9a3457686bbce9471ccae17~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`
+const fam4     = `${BASE}/054844_0c16d42520b5438fbbfc4a482b563b3d~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`
+const fam5     = `${BASE}/054844_5b2031a61747400f84cee04592aba372~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`
+const fam6     = `${BASE}/054844_0ae941c851624fb8b4b67e14913d2e90~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`
+
+// -- Portrait Emilie --
 const imgEmilie = `${BASE}/054844_403fa8728ab94f879bae2f087e75077e~mv2.jpg/v1/fill/w_800,h_1067,al_c,q_90,enc_avif,quality_auto/ep.jpg`
 
 const temoignages = [
   {
-    texte: "Emilie a su capter chaque regard, chaque sourire, chaque émotion de notre journée. On revit notre mariage à chaque fois qu'on feuillette l'album.",
-    auteur: "Marie et Thomas",
-    detail: "Mariés en Corrèze, juin 2024"
+    texte: "Dans la vie, il y a des photographes et il y a des artistes photographes. Émilie fait définitivement partie de cette deuxième catégorie. En alliant sa sensibilité et son professionnalisme, elle saisit des instants d'émotion pure et des regards qui en disent long. Sa bienveillance et son sourire nous ont mis en confiance. Allez-y les yeux fermés.",
+    auteur: "Julie & Kevin",
+    detail: "Etangs de Taysse · Mariage"
   },
   {
-    texte: "La séance grossesse s'est passée dans un tel naturel. Emilie met vraiment à l'aise, on oublie complètement l'appareil. Les photos sont magnifiques.",
-    auteur: "Léa",
-    detail: "Séance grossesse, Brive, 2024"
+    texte: "Un grand Merci à Emilie, une personne douce, souriante, à la fois discrète et présente. Sa bonne humeur, son professionnalisme ont enchanté notre journée. Une vrai belle personne avec un vrai talent. Pour vivre une journée avec quelqu'un « comme votre amie », choisissez Emilie !",
+    auteur: "Noelie & Clément",
+    detail: "Cher · Mariage"
   },
   {
-    texte: "Un vrai talent pour saisir les instants de famille. Les enfants ont joué, ri, et Emilie a tout capturé avec une douceur incroyable.",
-    auteur: "La famille Mouret",
-    detail: "Séance famille, Dordogne, 2023"
+    texte: "Nous avons bien reçu les photos, elles sont superbes. Merci pour l'excellent boulot, et tout cela avec bienveillance et discrétion. C'est si rare de nos jours !",
+    auteur: "Amélie & Anthony",
+    detail: "Région de Toulouse · Mariage"
   },
 ]
 
-const etapes = [
-  { label: 'Premier échange', titre: 'On se parle', texte: "Par mail ou téléphone, vous me racontez votre projet. Je vous explique comment je travaille. Pas de formulaire à remplir, juste une conversation." },
-  { label: 'On se découvre', titre: 'Un café, un appel', texte: "Pour les mariages, je propose qu'on se retrouve, en visio ou autour d'un café. C'est important qu'on soit à l'aise l'un avec l'autre avant le grand jour." },
-  { label: 'Le jour J', titre: 'Je suis là', texte: "Discrète, attentive. Je guide quand c'est utile, je m'efface quand l'émotion arrive. Vous vivez votre journée, je fais le reste." },
-  { label: 'Votre galerie', titre: 'Les photos arrivent', texte: "Sous 4 à 8 semaines, vous recevez votre galerie privée en ligne. Chaque image est retouchée à la main, dans un style lumineux et naturel." },
+const pros = [
+  { nom: "Mélanie Laurent", activite: "Professeure de yoga" },
+  { nom: "Laura Crinon", activite: "Consultante Sommeil & développement enfant" },
+  { nom: "Projets Iodés", activite: "Architecture intérieur, Pays basque" },
+  { nom: "Samuel Zattoni-Rouffy", activite: "Chanteur, coach vocal" },
+  { nom: "Pilates Nomade", activite: "Cours et accompagnement psycho-corporel" },
+  { nom: "Yasmina Chkili", activite: "Coach mindset" },
+  { nom: "Le Grain de Sel", activite: "Restaurant" },
+  { nom: "Le Ginkgo", activite: "Restaurant salon de thé" },
+  { nom: "Ma Beauté Green", activite: "Institut de beauté" },
+  { nom: "Corrézium", activite: "Inauguration" },
+  { nom: "Ordre du Barreau de Corrèze", activite: "Événement institutionnel" },
+  { nom: "INISUP / CCI Brive", activite: "Chambre de Commerce" },
+]
+
+const tarifs = [
+  {
+    categorie: "Famille · Grossesse · Nouveau-né",
+    prix: "200 € ou 250 €",
+    detail: "Galerie complète à 250 €. 30+ photos HD, 1h à domicile. Brive + 15 km (frais km au-delà).",
+    tag: "Famille"
+  },
+  {
+    categorie: "Pack Bienvenue Bébé",
+    prix: "400 €",
+    detail: "Séance grossesse + séance nouveau-né. Toutes les photos retouchées incluses.",
+    tag: "Nouveau-né"
+  },
+  {
+    categorie: "Smash the Cake",
+    prix: "250 €",
+    detail: "Mini séance famille (20 min) + séance gâteau à domicile. 50+ photos minimum. Brive + 15 km.",
+    tag: "Famille"
+  },
+  {
+    categorie: "Mariage",
+    prix: "À partir de 1 350 €",
+    detail: "Formule Saphir à Diamant. Préparatifs jusqu'au dancefloor. Galerie HD privée, aperçu sous 72h. USB en bois personnalisée en option.",
+    tag: "Mariage"
+  },
+  {
+    categorie: "Reporte ta Robe",
+    prix: "À partir de 300 €",
+    detail: "20-30 photos HD. 1h30 coiffure-maquillage + 1h photo à Vassinhac ou Collonges-la-Rouge. Paiement en 2-3x possible.",
+    tag: "Mariage"
+  },
+  {
+    categorie: "Portraits",
+    prix: "Sur devis",
+    detail: "Portraits individuels, ados, boudoir. Pas besoin d'occasion particulière. Je m'adapte à votre tempérament.",
+    tag: "Portrait"
+  },
+  {
+    categorie: "Professionnels",
+    prix: "À partir de 300 €",
+    detail: "50+ photos HD pour votre site, réseaux ou marketing. 1h ou 2h30-3h. Brive + 40 km. Vidéos courtes disponibles.",
+    tag: "Pro"
+  },
+  {
+    categorie: "Bon cadeau",
+    prix: "Montant libre",
+    detail: "Personnalisable, valable 1 an. Pour offrir une séance à un proche.",
+    tag: "Cadeau"
+  },
 ]
 ---
 <Layout>
@@ -48,8 +115,8 @@ const etapes = [
     <!-- ══════════ HERO ══════════ -->
     <section class="relative min-h-[92vh] sm:min-h-screen flex flex-col overflow-hidden border-b border-line">
       <figure class="absolute inset-0">
-        <img src={hero} alt="Mariage photographié par Emilie Pruneta en Corrèze" class="w-full h-full object-cover" loading="eager" fetchpriority="high" style="object-position: center 30%;"/>
-        <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(26,22,18,0.28) 0%, rgba(26,22,18,0.52) 100%);"></div>
+        <img src={heroMar} alt="Mariage photographié par Emilie Pruneta en Corrèze" class="w-full h-full object-cover" loading="eager" fetchpriority="high" style="object-position: center 40%;"/>
+        <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(26,22,18,0.22) 0%, rgba(26,22,18,0.55) 100%);"></div>
       </figure>
 
       <div class="relative flex-1 flex flex-col justify-end max-w-[1280px] mx-auto px-5 sm:px-8 pb-16 sm:pb-20 w-full">
@@ -59,21 +126,21 @@ const etapes = [
         </div>
 
         <h1 class="hero-item font-display italic font-light leading-[1.0] max-w-3xl" style="--hi:1; font-size: var(--text-display-xl); color: var(--color-fg-inv);">
-          Ce que vous vivez,<br/>je le garde<br/><em style="font-style:normal; font-weight:300; opacity:0.75;">pour vous.</em>
+          Bonjour,<br/>moi c'est Emilie !<br/><em style="font-style:normal; font-weight:300; opacity:0.72;">Photographe de mariage<br/>et de famille en Corrèze.</em>
         </h1>
 
         <p class="hero-item mt-6 max-w-md text-base font-light leading-relaxed" style="--hi:2; color: rgba(250,248,245,0.72);">
-          Mariage, famille, grossesse, nouveau-né. Je photographie vos plus belles émotions avec discrétion et sensibilité, en Corrèze et alentours.
+          Je vibre à vos côtés dans vos grands moments de vie. Basée à Brive-la-Gaillarde, en Corrèze, Lot et Dordogne.
         </p>
 
         <div class="hero-item mt-10 flex flex-wrap gap-3" style="--hi:3">
           <a href="#contact" class="cta" style="background:var(--color-fg-inv); color:var(--color-fg);">Demander un devis <span aria-hidden="true">→</span></a>
-          <a href="#mariages" class="cta-ghost" style="border-color:rgba(250,248,245,0.4); color:var(--color-fg-inv);">Voir le travail</a>
+          <a href="#mariages" class="cta-ghost" style="border-color:rgba(250,248,245,0.4); color:var(--color-fg-inv);">Voir mon travail</a>
         </div>
       </div>
     </section>
 
-    <!-- ══════════ INTRO EMILIE ══════════ -->
+    <!-- ══════════ À PROPOS ══════════ -->
     <section id="apropos" class="border-b border-line">
       <div class="max-w-[1280px] mx-auto px-5 sm:px-8 py-20 sm:py-28 grid lg:grid-cols-12 gap-12 items-center reveal-on-scroll">
         <div class="lg:col-span-5">
@@ -84,17 +151,17 @@ const etapes = [
         <div class="lg:col-span-6 lg:col-start-7">
           <p class="eyebrow mb-5">À propos</p>
           <h2 class="font-display italic font-light leading-[1.1] mb-8" style="font-size: var(--text-h2);">
-            Je vibre à vos côtés<br/><em style="font-style:normal; color:var(--color-muted-strong);">dans vos grands moments.</em>
+            Je suis photographe<br/><em style="font-style:normal; color:var(--color-muted-strong);">depuis 2012.</em>
           </h2>
           <div class="space-y-5 text-base leading-relaxed" style="color: var(--color-muted-strong);">
             <p>
-              Je m'appelle Emilie. Je photographie des mariages, des familles et des naissances en Corrèze depuis 2012. Ce que j'aime dans ce métier, c'est ce qui ne se commande pas : un regard, une main qui serre l'autre, un rire qui éclate au mauvais moment.
+              Je vibre à vos côtés dans vos grands moments de vie. Je photographie vos histoires, vos rires, vos émotions, vos grossesses, vos petits et grands, parce que je suis profondément convaincue que les clichés réalisés compteront pour vous, maintenant et plus tard.
             </p>
             <p>
-              Je travaille en retrait, sans diriger. J'observe, j'attends, je déclenche quand ça arrive vraiment. Pas de poses répétées, pas de mise en scène. Juste ce qui s'est passé.
+              Avec une approche naturelle et de la complicité, je crée des souvenirs authentiques et des images qui vous ressemblent. Passer devant l'appareil paraît souvent intimidant, mais je saurai vous mettre à l'aise.
             </p>
             <p>
-              En 12 ans, j'ai photographié des centaines de familles et de couples. Chaque fois, les gens me disent la même chose : ils avaient oublié que j'étais là.
+              Mon style ? De la lumière naturelle avant tout. Une séance à mes côtés, c'est un moment simple, plein de douceur.
             </p>
           </div>
           <a href="#contact" class="mt-10 inline-flex items-center gap-2 text-sm font-medium" style="color:var(--color-accent);">
@@ -104,37 +171,59 @@ const etapes = [
       </div>
     </section>
 
-    <!-- ══════════ PRESTATIONS MARIAGE ══════════ -->
+    <!-- ══════════ MARIAGES ══════════ -->
     <section id="mariages" class="border-b border-line" style="background: var(--color-bg-elev);">
       <div class="max-w-[1280px] mx-auto px-5 sm:px-8 py-20 sm:py-28 reveal-on-scroll">
         <div class="grid lg:grid-cols-12 gap-10 mb-14">
           <div class="lg:col-span-5">
             <p class="eyebrow mb-4">Mariage</p>
             <h2 class="font-display italic font-light leading-[1.1]" style="font-size: var(--text-h2);">
-              Votre histoire,<br/><em style="font-style:normal;">racontée en images.</em>
+              C'est votre grand jour,<br/><em style="font-style:normal;">et il sera unique.</em>
             </h2>
           </div>
-          <div class="lg:col-span-6 lg:col-start-7 flex items-end">
+          <div class="lg:col-span-6 lg:col-start-7 flex flex-col justify-end gap-6">
             <p class="text-base leading-relaxed" style="color: var(--color-muted-strong);">
-              Des préparatifs jusqu'à la fête, je suis là pour tout capter : les regards, les silences, les éclats de joie. Un reportage discret et sensible, qui vous ressemble.
+              Depuis 2012, j'accompagne des couples pour leur mariage. Je suis à vos côtés une grande partie de la journée, parfois même jusqu'à la nuit. De ma présence, vous retiendrez ma discrétion, mon aisance à aller vers vos invités. Je me ferai aussi petite qu'une souris, mais qui n'en loupe pas une miette.
             </p>
+            <ul class="space-y-2 text-sm" style="color: var(--color-muted);">
+              <li class="flex items-center gap-2"><span class="dot shrink-0"></span> Préparatifs en toute intimité</li>
+              <li class="flex items-center gap-2"><span class="dot shrink-0"></span> First look lors de votre découverte</li>
+              <li class="flex items-center gap-2"><span class="dot shrink-0"></span> Cérémonies civiles, laïques, religieuses</li>
+              <li class="flex items-center gap-2"><span class="dot shrink-0"></span> Petits fours, repas, et jusqu'au bout de la nuit</li>
+            </ul>
           </div>
         </div>
 
         <!-- Galerie mariage asymétrique -->
         <div class="grid grid-cols-12 gap-2 sm:gap-3">
           <figure class="col-span-8 aspect-[4/3] overflow-hidden">
-            <img src={hero} alt="Couple de mariés photographiés par Emilie Pruneta" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-700" loading="lazy"/>
+            <img src={mar2} alt="Couple de mariés, reportage Emilie Pruneta Corrèze" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-700" loading="lazy"/>
           </figure>
           <figure class="col-span-4 aspect-[3/4] overflow-hidden">
-            <img src={img2} alt="Détails de mariage, reportage Emilie Pruneta" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-700" loading="lazy"/>
+            <img src={mar1} alt="Portrait marié, Emilie Pruneta photographe" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-700" loading="lazy"/>
           </figure>
           <figure class="col-span-4 aspect-[3/4] overflow-hidden">
-            <img src={img3} alt="Portraits mariés, Corrèze" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-700" loading="lazy"/>
+            <img src={mar3} alt="Mariage en Corrèze, photo naturelle" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-700" loading="lazy"/>
           </figure>
           <figure class="col-span-8 aspect-[4/3] overflow-hidden">
-            <img src={img2} alt="Cérémonie de mariage en plein air" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-700" loading="lazy" style="object-position: center 20%;"/>
+            <img src={mar2} alt="Cérémonie de mariage, reportage discret" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-700" loading="lazy" style="object-position: center 60%;"/>
           </figure>
+        </div>
+
+        <!-- Reporte ta robe -->
+        <div class="mt-14 p-8 sm:p-10 border border-line" style="background: var(--color-bg);">
+          <div class="grid sm:grid-cols-2 gap-6 items-center">
+            <div>
+              <p class="eyebrow mb-3" style="color:var(--color-accent);">Déjà mariée ?</p>
+              <h3 class="font-display italic text-2xl sm:text-3xl font-light mb-3">Reporte ta robe.</h3>
+              <p class="text-sm leading-relaxed mb-4" style="color: var(--color-muted-strong);">
+                À partir de 300 €. 1h30 de coiffure-maquillage + 1h de photo à Vassinhac ou Collonges-la-Rouge. 20 à 30 photos HD. Paiement en 2 ou 3 fois possible.
+              </p>
+            </div>
+            <div class="sm:text-right">
+              <a href="#contact" class="cta inline-flex">Me renseigner <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
         </div>
 
         <div class="mt-10 flex justify-center">
@@ -145,65 +234,185 @@ const etapes = [
 
     <!-- ══════════ PHOTO BREAK ══════════ -->
     <div class="relative aspect-[21/8] overflow-hidden border-b border-line">
-      <img src={imgBig} alt="Emilie Pruneta, photographe de mariage en Corrèze" class="w-full h-full object-cover" loading="lazy" style="object-position: center 35%;"/>
-      <div class="absolute inset-0" style="background: rgba(26,22,18,0.45);"></div>
+      <img src={marPano} alt="Mariage en Corrèze, Emilie Pruneta photographe" class="w-full h-full object-cover" loading="lazy" style="object-position: center 40%;"/>
+      <div class="absolute inset-0" style="background: rgba(26,22,18,0.42);"></div>
       <div class="absolute inset-0 flex items-center justify-center text-center px-6">
-        <blockquote class="font-display italic font-light max-w-2xl" style="font-size: clamp(1.8rem, 4vw, 3.5rem); color: var(--color-fg-inv); line-height: 1.2;">
-          "Je capte ce que vous vivez,<br/>pas ce que vous jouez."
+        <blockquote class="font-display italic font-light max-w-2xl" style="font-size: clamp(1.8rem, 4vw, 3.2rem); color: var(--color-fg-inv); line-height: 1.2;">
+          "Je saute à pieds joints<br/>et je vous suis dans votre aventure !"
         </blockquote>
       </div>
     </div>
 
-    <!-- ══════════ FAMILLE / GROSSESSE / NAISSANCE ══════════ -->
+    <!-- ══════════ FAMILLE · GROSSESSE · NOUVEAU-NÉ ══════════ -->
     <section id="famille" class="border-b border-line">
       <div class="max-w-[1280px] mx-auto px-5 sm:px-8 py-20 sm:py-28 reveal-on-scroll">
         <p class="eyebrow mb-4">Famille · Grossesse · Nouveau-né</p>
-        <h2 class="font-display italic font-light leading-[1.1] mb-12 max-w-2xl" style="font-size: var(--text-h2);">
-          Les premiers regards,<br/><em style="font-style:normal; color:var(--color-muted-strong);">les souvenirs qui durent.</em>
+        <h2 class="font-display italic font-light leading-[1.1] mb-6 max-w-2xl" style="font-size: var(--text-h2);">
+          Est-ce que vous vous êtes déjà dit<br/><em style="font-style:normal; color:var(--color-muted-strong);">que vos enfants grandissaient trop vite ?</em>
         </h2>
+        <p class="text-base leading-relaxed mb-14 max-w-2xl" style="color: var(--color-muted-strong);">
+          Les moments partagés en famille sont irremplaçables. Que ce soit une journée ordinaire ou un événement spécial, je crée des images naturelles et authentiques qui vous permettent de vous remémorer aujourd'hui et demain les moments qui ont compté.
+        </p>
 
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
+        <!-- Grille famille -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
           <figure class="aspect-[3/4] overflow-hidden">
-            <img src={imgFam1} alt="Séance famille en extérieur" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
+            <img src={fam1} alt="Séance famille naturelle, Emilie Pruneta" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
           </figure>
           <figure class="aspect-[3/4] overflow-hidden sm:mt-10">
-            <img src={imgFam2} alt="Séance grossesse, lumière naturelle" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
+            <img src={fam2} alt="Séance grossesse lumière naturelle, Corrèze" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
           </figure>
           <figure class="aspect-[3/4] overflow-hidden">
-            <img src={imgFam3} alt="Portrait nouveau-né, Corrèze" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
+            <img src={fam3} alt="Famille, photo authentique, Brive" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
+          </figure>
+          <figure class="aspect-[3/4] overflow-hidden sm:mt-[-5rem]">
+            <img src={fam4} alt="Nouveau-né, premiers instants, Corrèze" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
+          </figure>
+          <figure class="aspect-[3/4] overflow-hidden">
+            <img src={fam5} alt="Séance bébé à domicile" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
           </figure>
           <figure class="aspect-[3/4] overflow-hidden sm:mt-10">
-            <img src={imgFam4} alt="Famille, séance photo naturelle" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
+            <img src={fam6} alt="Famille, moments de vie, Emilie Pruneta" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
           </figure>
         </div>
 
+        <!-- Sous-catégories -->
         <div class="mt-14 grid sm:grid-cols-3 gap-px border-y border-line" style="background: var(--color-line);">
-          {[
-            { titre: 'Famille', texte: 'Enfants qui courent, câlins improvisés, éclats de rire. Je capture votre famille telle qu\'elle est vraiment.' },
-            { titre: 'Grossesse', texte: 'Le ventre rond, la lumière du matin. Une séance dehors ou chez vous, à quelques semaines de l\'arrivée.' },
-            { titre: 'Nouveau-né', texte: 'À domicile, dans les premiers jours. On prend le temps, sans brusquer ni mettre en scène.' },
-          ].map((p) => (
-            <div class="py-10 px-8" style="background: var(--color-bg);">
-              <h3 class="font-display italic text-2xl mb-3">{p.titre}</h3>
-              <p class="text-sm leading-relaxed" style="color: var(--color-muted-strong);">{p.texte}</p>
-            </div>
-          ))}
+          <div class="py-10 px-8" style="background: var(--color-bg-elev);">
+            <h3 class="font-display italic text-2xl mb-3">Famille</h3>
+            <p class="text-sm leading-relaxed" style="color: var(--color-muted-strong);">
+              Votre grande famille se réunit pour les fêtes ou durant l'été ? Passons un moment dans votre maison de famille. Je couvre aussi les baptêmes et autres événements religieux de vos enfants.
+            </p>
+          </div>
+          <div class="py-10 px-8" style="background: var(--color-bg-elev);">
+            <h3 class="font-display italic text-2xl mb-3">Grossesse</h3>
+            <p class="text-sm leading-relaxed" style="color: var(--color-muted-strong);">
+              La grossesse est une période magique, pleine d'attente et d'émotions. Je réalise vos photos quelques semaines avant l'arrivée, dehors ou chez vous, dans la lumière naturelle.
+            </p>
+          </div>
+          <div class="py-10 px-8" style="background: var(--color-bg-elev);">
+            <h3 class="font-display italic text-2xl mb-3">Nouveau-né</h3>
+            <p class="text-sm leading-relaxed" style="color: var(--color-muted-strong);">
+              Les premiers mois d'un bébé sont remplis de tendresse, de découvertes et d'émerveillement. J'immortalise vos premiers instants ensemble, à domicile, on prend le temps.
+            </p>
+          </div>
         </div>
 
-        <div class="mt-10 flex justify-center">
-          <a href="#contact" class="cta">Réserver une séance <span aria-hidden="true">→</span></a>
+        <!-- Smash the Cake -->
+        <div class="mt-10 p-8 sm:p-10 border border-line" style="background: var(--color-bg-elev);">
+          <div class="grid sm:grid-cols-2 gap-6 items-center">
+            <div>
+              <p class="eyebrow mb-3" style="color:var(--color-accent);">Pour les bébés</p>
+              <h3 class="font-display italic text-2xl sm:text-3xl font-light mb-3">Smash the Cake.</h3>
+              <p class="text-sm leading-relaxed mb-4" style="color: var(--color-muted-strong);">
+                250 €. Mini séance famille de 20 minutes puis séance gâteau à domicile. 50+ photos minimum. Brive + 15 km.
+              </p>
+            </div>
+            <div class="sm:text-right">
+              <a href="#contact" class="cta inline-flex">Réserver une séance <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ══════════ TEMOIGNAGES ══════════ -->
-    <section class="border-b border-line" style="background: var(--color-bg-elev);">
+    <!-- ══════════ PORTRAITS ══════════ -->
+    <section id="portraits" class="border-b border-line" style="background: var(--color-bg-elev);">
+      <div class="max-w-[1280px] mx-auto px-5 sm:px-8 py-20 sm:py-28 reveal-on-scroll">
+        <div class="grid lg:grid-cols-12 gap-10">
+          <div class="lg:col-span-5">
+            <p class="eyebrow mb-4">Portraits · Boudoir</p>
+            <h2 class="font-display italic font-light leading-[1.1]" style="font-size: var(--text-h2);">
+              Peu importe votre âge,<br/><em style="font-style:normal; color:var(--color-muted-strong);">venez.</em>
+            </h2>
+          </div>
+          <div class="lg:col-span-6 lg:col-start-7 flex flex-col justify-center gap-6">
+            <p class="text-base leading-relaxed" style="color: var(--color-muted-strong);">
+              Pour vous, pour un proche, pour votre enfant, votre adolescent, votre adulte en devenir : passer devant l'objectif permet souvent de franchir un cap dans l'acceptation, dans l'estime de soi.
+            </p>
+            <p class="text-base leading-relaxed" style="color: var(--color-muted-strong);">
+              Pas de pose clichés. Je m'adapte à vous, votre tempérament, vos complexes, au niveau d'implication que vous voulez apporter à la séance. Pas besoin d'attendre une occasion particulière, vous avez le droit de vous faire plaisir.
+            </p>
+            <p class="text-base leading-relaxed" style="color: var(--color-muted-strong);">
+              Et pour aller plus loin, je vous accompagne lors des séances boudoir.
+            </p>
+            <div>
+              <a href="#contact" class="cta inline-flex">Me contacter <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ PROFESSIONNELS ══════════ -->
+    <section id="professionnels" class="border-b border-line">
+      <div class="max-w-[1280px] mx-auto px-5 sm:px-8 py-20 sm:py-28 reveal-on-scroll">
+        <div class="grid lg:grid-cols-12 gap-10 mb-14">
+          <div class="lg:col-span-5">
+            <p class="eyebrow mb-4">Professionnels</p>
+            <h2 class="font-display italic font-light leading-[1.1]" style="font-size: var(--text-h2);">
+              Vous vous lancez,<br/><em style="font-style:normal; color:var(--color-muted-strong);">ou vous êtes à votre compte.</em>
+            </h2>
+          </div>
+          <div class="lg:col-span-6 lg:col-start-7 flex flex-col justify-end gap-6">
+            <p class="text-base leading-relaxed" style="color: var(--color-muted-strong);">
+              Vous avez besoin de clichés pro ? Je vous immortalise en activité, dans vos locaux, en clientèle, ainsi que votre espace de travail. En toute simplicité, nous discutons de votre projet et validons les idées ensemble via un moodboard. Je vous offre aussi ma compagnie lors de vos événements professionnels.
+            </p>
+            <p class="text-sm" style="color: var(--color-muted);">
+              À partir de 300 €. 50+ photos HD, 1h ou 2h30-3h. Brive + 40 km. Vidéos courtes pour réseaux disponibles.
+            </p>
+          </div>
+        </div>
+
+        <!-- Grille clients -->
+        <div class="border-t border-line pt-10">
+          <p class="eyebrow mb-8">Ils m'ont fait confiance</p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px" style="background: var(--color-line);">
+            {pros.map((p) => (
+              <div class="py-6 px-6" style="background: var(--color-bg);">
+                <p class="font-medium text-sm mb-1">{p.nom}</p>
+                <p class="text-xs" style="color: var(--color-muted);">{p.activite}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ TARIFS ══════════ -->
+    <section id="tarifs" class="border-b border-line" style="background: var(--color-bg-elev);">
+      <div class="max-w-[1280px] mx-auto px-5 sm:px-8 py-20 sm:py-28 reveal-on-scroll">
+        <p class="eyebrow mb-4">Tarifs</p>
+        <h2 class="font-display italic font-light leading-[1.1] mb-14" style="font-size: var(--text-h2);">
+          Les formules,<br/><em style="font-style:normal; color:var(--color-muted-strong);">en clair.</em>
+        </h2>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px border border-line" style="background: var(--color-line);">
+          {tarifs.map((t) => (
+            <div class="p-8" style="background: var(--color-bg);">
+              <p class="eyebrow mb-4" style="color: var(--color-accent);">{t.tag}</p>
+              <h3 class="font-medium text-base mb-2">{t.categorie}</h3>
+              <p class="font-display italic text-2xl font-light mb-4" style="color: var(--color-fg);">{t.prix}</p>
+              <p class="text-xs leading-relaxed" style="color: var(--color-muted);">{t.detail}</p>
+            </div>
+          ))}
+        </div>
+
+        <p class="mt-8 text-sm text-center" style="color: var(--color-muted);">
+          Frais kilométriques selon zone. Bons cadeaux personnalisables, valables 1 an.
+          <a href="#contact" class="underline underline-offset-2 ml-1" style="color: var(--color-accent);">Me contacter pour un devis sur mesure.</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ══════════ TÉMOIGNAGES ══════════ -->
+    <section id="temoignages" class="border-b border-line">
       <div class="max-w-[1280px] mx-auto px-5 sm:px-8 py-20 sm:py-28 reveal-on-scroll">
         <p class="eyebrow mb-12 text-center">Ce qu'ils en disent</p>
-        <div class="grid sm:grid-cols-3 gap-px" style="background: var(--color-line);">
+        <div class="grid sm:grid-cols-3 gap-px border border-line" style="background: var(--color-line);">
           {temoignages.map((t) => (
-            <blockquote class="p-8 sm:p-10" style="background: var(--color-bg);">
-              <p class="font-display italic text-xl sm:text-2xl font-light leading-relaxed mb-8" style="color: var(--color-muted-strong);">
+            <blockquote class="p-8 sm:p-10" style="background: var(--color-bg-elev);">
+              <p class="font-display italic text-xl font-light leading-relaxed mb-8" style="color: var(--color-muted-strong);">
                 "{t.texte}"
               </p>
               <footer>
@@ -216,27 +425,7 @@ const etapes = [
       </div>
     </section>
 
-    <!-- ══════════ COMMENT CA SE PASSE ══════════ -->
-    <section class="border-b border-line">
-      <div class="max-w-[1280px] mx-auto px-5 sm:px-8 py-20 sm:py-28 reveal-on-scroll">
-        <p class="eyebrow mb-4">Le déroulement</p>
-        <h2 class="font-display italic font-light leading-[1.1] mb-14" style="font-size: var(--text-h2);">
-          Comment ça<br/><em style="font-style:normal; color:var(--color-muted-strong);">se passe.</em>
-        </h2>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px border-y border-line" style="background: var(--color-line);">
-          {etapes.map((e) => (
-            <div class="py-10 px-8" style="background: var(--color-bg);">
-              <p class="eyebrow mb-5" style="color: var(--color-accent);">{e.label}</p>
-              <h3 class="font-display italic text-xl mb-3">{e.titre}</h3>
-              <p class="text-sm leading-relaxed" style="color: var(--color-muted-strong);">{e.texte}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════ CONTACT / CTA FINAL ══════════ -->
+    <!-- ══════════ CONTACT ══════════ -->
     <section id="contact" class="relative overflow-hidden border-b border-line" style="background: var(--color-bg-dark);">
       <div class="absolute pointer-events-none" style="inset:0; background: radial-gradient(ellipse at 60% 50%, rgba(196,129,106,0.12) 0%, transparent 70%);" aria-hidden="true"></div>
 
@@ -248,7 +437,7 @@ const etapes = [
               Un projet ?<br/><em style="font-style:normal; color: var(--color-accent);">Écrivez-moi.</em>
             </h2>
             <p class="text-base leading-relaxed mb-10" style="color: rgba(250,248,245,0.60);">
-              Mariage, famille, grossesse, naissance. Dites-moi la date, le lieu, ce que vous avez en tête. Je réponds sous 48h.
+              Mariage, famille, grossesse, naissance, portrait, professionnel. Dites-moi la date, le lieu, ce que vous avez en tête.
             </p>
             <div class="space-y-3">
               <a href="mailto:emilie@emiliepruneta.com" class="flex items-center gap-3 text-sm transition-colors" style="color: rgba(250,248,245,0.70);">
@@ -278,7 +467,11 @@ const etapes = [
                   <option value="mariage" style="background:#1a1612;">Mariage</option>
                   <option value="famille" style="background:#1a1612;">Famille</option>
                   <option value="grossesse" style="background:#1a1612;">Grossesse</option>
-                  <option value="naissance" style="background:#1a1612;">Nouveau-né</option>
+                  <option value="nouveau-ne" style="background:#1a1612;">Nouveau-né</option>
+                  <option value="smash-cake" style="background:#1a1612;">Smash the Cake</option>
+                  <option value="portrait" style="background:#1a1612;">Portrait · Boudoir</option>
+                  <option value="pro" style="background:#1a1612;">Professionnel</option>
+                  <option value="reporte-robe" style="background:#1a1612;">Reporte ta robe</option>
                 </select>
               </div>
 
@@ -295,6 +488,14 @@ const etapes = [
         </div>
       </div>
     </section>
+
+    <!-- Citation finale -->
+    <div class="py-16 sm:py-20 text-center px-5" style="background: var(--color-bg);">
+      <blockquote class="font-display italic font-light max-w-2xl mx-auto" style="font-size: clamp(1.2rem, 2.5vw, 1.8rem); color: var(--color-muted-strong); line-height: 1.5;">
+        "Capturer l'amour dans les instants du quotidien, c'est offrir une séance qui célèbre les liens précieux qui vous unissent."
+      </blockquote>
+      <p class="mt-4 text-sm" style="color: var(--color-muted);">Emilie Pruneta</p>
+    </div>
 
   </main>
 
