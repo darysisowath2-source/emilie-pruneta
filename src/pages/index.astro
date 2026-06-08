@@ -20,8 +20,8 @@ const fam4     = `${BASE}/054844_0c16d42520b5438fbbfc4a482b563b3d~mv2.jpg/v1/fil
 const fam5     = `${BASE}/054844_5b2031a61747400f84cee04592aba372~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`
 const fam6     = `${BASE}/054844_0ae941c851624fb8b4b67e14913d2e90~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`
 
-// -- Portrait Emilie --
-const imgEmilie = `${BASE}/054844_403fa8728ab94f879bae2f087e75077e~mv2.jpg/v1/fill/w_800,h_1067,al_c,q_90,enc_avif,quality_auto/ep.jpg`
+// -- Portrait Emilie (photo officielle depuis /contact) --
+const imgEmilie = `${BASE}/054844_44c730830d754861914f5bc409483387~mv2.jpg/v1/fill/w_800,h_1067,al_c,q_90,enc_avif,quality_auto/ep.jpg`
 
 const temoignages = [
   {
@@ -108,32 +108,38 @@ const tarifs = [
 ]
 ---
 <Layout>
+  <!-- Bannière maquette -->
+  <div id="maquette-banner" class="relative z-[60] text-center py-2.5 px-8 text-[13px] font-medium" style="background: var(--color-accent); color: #fff;">
+    Aperçu exclusif · Ceci est une maquette préparée pour Emilie Pruneta. Photos, textes et tarifs seront validés ensemble avant mise en ligne.
+    <button id="close-banner" onclick="document.getElementById('maquette-banner').style.display='none'" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white text-lg leading-none" aria-label="Fermer">✕</button>
+  </div>
+
   <Nav />
 
   <main id="top" class="pt-16">
 
     <!-- ══════════ HERO ══════════ -->
-    <section class="relative min-h-[92vh] sm:min-h-screen flex flex-col overflow-hidden border-b border-line">
+    <section class="relative h-[82vh] flex flex-col overflow-hidden border-b border-line">
       <figure class="absolute inset-0">
         <img src={heroMar} alt="Mariage photographié par Emilie Pruneta en Corrèze" class="w-full h-full object-cover" loading="eager" fetchpriority="high" style="object-position: center 40%;"/>
-        <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(26,22,18,0.22) 0%, rgba(26,22,18,0.55) 100%);"></div>
+        <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(26,22,18,0.18) 0%, rgba(26,22,18,0.62) 100%);"></div>
       </figure>
 
-      <div class="relative flex-1 flex flex-col justify-end max-w-[1280px] mx-auto px-5 sm:px-8 pb-16 sm:pb-20 w-full">
-        <div class="hero-item mb-5 flex items-center gap-3" style="--hi:0">
+      <div class="relative flex-1 flex flex-col justify-center max-w-[1280px] mx-auto px-5 sm:px-8 w-full">
+        <div class="hero-item mb-4 flex items-center gap-3" style="--hi:0">
           <span class="dot" style="background:#faf8f5; opacity:0.6;"></span>
           <span class="eyebrow" style="color: rgba(250,248,245,0.6);">Photographe · Corrèze · Depuis 2012</span>
         </div>
 
-        <h1 class="hero-item font-display italic font-light leading-[1.0] max-w-3xl" style="--hi:1; font-size: var(--text-display-xl); color: var(--color-fg-inv);">
-          Bonjour,<br/>moi c'est Emilie !<br/><em style="font-style:normal; font-weight:300; opacity:0.72;">Photographe de mariage<br/>et de famille en Corrèze.</em>
+        <h1 class="hero-item font-display italic font-light leading-[1.05] max-w-3xl" style="--hi:1; font-size: clamp(2.8rem, 7vw, 6.5rem); color: var(--color-fg-inv);">
+          Bonjour, moi c'est Emilie.<br/><em style="font-style:normal; font-weight:300; opacity:0.72;">Photographe de mariage<br class="hidden sm:block"/> et de famille en Corrèze.</em>
         </h1>
 
-        <p class="hero-item mt-6 max-w-md text-base font-light leading-relaxed" style="--hi:2; color: rgba(250,248,245,0.72);">
+        <p class="hero-item mt-5 max-w-md text-base font-light leading-relaxed" style="--hi:2; color: rgba(250,248,245,0.70);">
           Je vibre à vos côtés dans vos grands moments de vie. Basée à Brive-la-Gaillarde, en Corrèze, Lot et Dordogne.
         </p>
 
-        <div class="hero-item mt-10 flex flex-wrap gap-3" style="--hi:3">
+        <div class="hero-item mt-8 flex flex-wrap gap-3" style="--hi:3">
           <a href="#contact" class="cta" style="background:var(--color-fg-inv); color:var(--color-fg);">Demander un devis <span aria-hidden="true">→</span></a>
           <a href="#mariages" class="cta-ghost" style="border-color:rgba(250,248,245,0.4); color:var(--color-fg-inv);">Voir mon travail</a>
         </div>

@@ -64,8 +64,11 @@ const canonical = SITE + Astro.url.pathname
     <slot />
 
     <script>
-      const targets = document.querySelectorAll('.reveal-on-scroll');
-      if ('IntersectionObserver' in window && targets.length) {
+      const revealSingle = document.querySelectorAll('.reveal-on-scroll');
+      const revealChildren = document.querySelectorAll('.reveal-children > *');
+      revealChildren.forEach((el) => el.classList.add('reveal-child'));
+      const allTargets = [...revealSingle, ...revealChildren];
+      if ('IntersectionObserver' in window && allTargets.length) {
         const io = new IntersectionObserver((entries) => {
           for (const entry of entries) {
             if (entry.isIntersecting) {
@@ -74,9 +77,9 @@ const canonical = SITE + Astro.url.pathname
             }
           }
         }, { rootMargin: '0px 0px -6% 0px', threshold: 0.04 });
-        targets.forEach((el) => io.observe(el));
+        allTargets.forEach((el) => io.observe(el));
       } else {
-        targets.forEach((el) => el.classList.add('is-visible'));
+        allTargets.forEach((el) => el.classList.add('is-visible'));
       }
     </script>
 

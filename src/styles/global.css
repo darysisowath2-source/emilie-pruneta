@@ -127,3 +127,40 @@ details[open] .faq-answer { animation: faq-reveal 280ms ease-out; }
   from { opacity: 0; transform: translateY(-3px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* Animations enrichies */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-child {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 700ms cubic-bezier(0.2,0.7,0.2,1), transform 700ms cubic-bezier(0.2,0.7,0.2,1);
+  }
+  .reveal-child.is-visible { opacity: 1; transform: translateY(0); }
+  .reveal-child:nth-child(1) { transition-delay: 0ms; }
+  .reveal-child:nth-child(2) { transition-delay: 100ms; }
+  .reveal-child:nth-child(3) { transition-delay: 200ms; }
+  .reveal-child:nth-child(4) { transition-delay: 300ms; }
+  .reveal-child:nth-child(5) { transition-delay: 400ms; }
+  .reveal-child:nth-child(6) { transition-delay: 500ms; }
+  .reveal-child:nth-child(7) { transition-delay: 600ms; }
+  .reveal-child:nth-child(8) { transition-delay: 700ms; }
+
+  /* Parallaxe légère sur les photos hero */
+  .hero-parallax { will-change: transform; transition: transform 0.1s linear; }
+}
+
+/* Hover images galerie */
+figure img { transition: transform 700ms cubic-bezier(0.25,0.46,0.45,0.94), filter 500ms ease; }
+figure:hover img { transform: scale(1.04); filter: brightness(1.04); }
+
+/* Fond accent doux pour sections alternées */
+.bg-blush-soft { background: linear-gradient(135deg, #f5ede8 0%, #faf8f5 100%); }
+.bg-warm { background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-elev) 100%); }
+
+/* Ligne décorative animée */
+.hairline-accent {
+  display: block; height: 1px; width: 0;
+  background: var(--color-accent);
+  transition: width 900ms cubic-bezier(0.2,0.7,0.2,1) 300ms;
+}
+.is-visible .hairline-accent { width: 48px; }
