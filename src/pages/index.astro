@@ -1,0 +1,301 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+
+// Photos Unsplash verifiees (HEAD 200)
+// A remplacer par les vraies photos d'Emilie
+const hero     = 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=1800&q=85'
+const img2     = 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1400&q=80'
+const img3     = 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1400&q=80'
+const imgFam1  = 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80'
+const imgFam2  = 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=900&q=80'
+const imgFam3  = 'https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=900&q=80'
+const imgFam4  = 'https://images.unsplash.com/photo-1476703993599-0035a21b17a9?auto=format&fit=crop&w=900&q=80'
+const imgEmilie = 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80'
+
+const temoignages = [
+  {
+    texte: "Emilie a su capter chaque regard, chaque sourire, chaque émotion de notre journée. On revit notre mariage à chaque fois qu'on feuillette l'album.",
+    auteur: "Marie et Thomas",
+    detail: "Mariés en Corrèze, juin 2024"
+  },
+  {
+    texte: "La séance grossesse s'est passée dans un tel naturel. Emilie met vraiment à l'aise, on oublie complètement l'appareil. Les photos sont magnifiques.",
+    auteur: "Léa",
+    detail: "Séance grossesse, Brive, 2024"
+  },
+  {
+    texte: "Un vrai talent pour saisir les instants de famille. Les enfants ont joué, ri, et Emilie a tout capturé avec une douceur incroyable.",
+    auteur: "La famille Mouret",
+    detail: "Séance famille, Dordogne, 2023"
+  },
+]
+
+const etapes = [
+  { n: '01', titre: 'Premier contact', texte: "On échange par mail ou téléphone. Vous me parlez de votre projet, je vous présente mon approche. Pas de formalité, juste une vraie conversation." },
+  { n: '02', titre: 'On se rencontre', texte: "Pour les mariages, je propose un appel vidéo ou une rencontre autour d'un café. L'objectif : qu'on se connaisse vraiment avant le grand jour." },
+  { n: '03', titre: 'La séance', texte: "Je suis discrète, bienveillante, je guide sans diriger. Mon rôle : vous faire oublier mon appareil pour que l'émotion s'exprime librement." },
+  { n: '04', titre: 'Les photos', texte: "Sous 4 à 8 semaines selon les prestations, vous recevez votre galerie en ligne. Chaque image est retouchée avec soin, dans un style naturel et lumineux." },
+]
+---
+<Layout>
+  <Nav />
+
+  <main id="top" class="pt-16">
+
+    <!-- ══════════ HERO ══════════ -->
+    <section class="relative min-h-[92vh] sm:min-h-screen flex flex-col overflow-hidden border-b border-line">
+      <figure class="absolute inset-0">
+        <img src={hero} alt="Mariage photographié par Emilie Pruneta en Corrèze" class="w-full h-full object-cover" loading="eager" fetchpriority="high" style="object-position: center 30%;"/>
+        <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(26,22,18,0.28) 0%, rgba(26,22,18,0.52) 100%);"></div>
+      </figure>
+
+      <div class="relative flex-1 flex flex-col justify-end max-w-[1280px] mx-auto px-5 sm:px-8 pb-16 sm:pb-20 w-full">
+        <div class="hero-item mb-5 flex items-center gap-3" style="--hi:0">
+          <span class="dot" style="background:#faf8f5; opacity:0.6;"></span>
+          <span class="eyebrow" style="color: rgba(250,248,245,0.6);">Photographe · Corrèze · Depuis 2012</span>
+        </div>
+
+        <h1 class="hero-item font-display italic font-light leading-[1.0] max-w-3xl" style="--hi:1; font-size: var(--text-display-xl); color: var(--color-fg-inv);">
+          Les moments<br/>qui comptent,<br/><em style="font-style:normal; font-weight:300; opacity:0.75;">pour toujours.</em>
+        </h1>
+
+        <p class="hero-item mt-6 max-w-md text-base font-light leading-relaxed" style="--hi:2; color: rgba(250,248,245,0.72);">
+          Mariage, famille, grossesse, nouveau-né. Je photographie vos plus belles émotions avec discrétion et sensibilité, en Corrèze et alentours.
+        </p>
+
+        <div class="hero-item mt-10 flex flex-wrap gap-3" style="--hi:3">
+          <a href="#contact" class="cta" style="background:var(--color-fg-inv); color:var(--color-fg);">Demander un devis <span aria-hidden="true">→</span></a>
+          <a href="#mariages" class="cta-ghost" style="border-color:rgba(250,248,245,0.4); color:var(--color-fg-inv);">Voir le travail</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ INTRO EMILIE ══════════ -->
+    <section id="apropos" class="border-b border-line">
+      <div class="max-w-[1280px] mx-auto px-5 sm:px-8 py-20 sm:py-28 grid lg:grid-cols-12 gap-12 items-center reveal-on-scroll">
+        <div class="lg:col-span-5">
+          <figure class="aspect-[4/5] overflow-hidden" style="background: var(--color-bg-elev);">
+            <img src={imgEmilie} alt="Emilie Pruneta, photographe" class="w-full h-full object-cover" loading="lazy"/>
+          </figure>
+        </div>
+        <div class="lg:col-span-6 lg:col-start-7">
+          <p class="eyebrow mb-5">À propos</p>
+          <h2 class="font-display italic font-light leading-[1.1] mb-8" style="font-size: var(--text-h2);">
+            Je vibre à vos côtés<br/><em style="font-style:normal; color:var(--color-muted-strong);">dans vos grands moments.</em>
+          </h2>
+          <div class="space-y-5 text-base leading-relaxed" style="color: var(--color-muted-strong);">
+            <p>
+              Je m'appelle Emilie. Je suis photographe en Corrèze depuis 2012, et ce qui me passionne, c'est de raconter des histoires vraies. Pas des poses figées, pas des sourires forcés : des éclats de rire, des larmes retenues, des mains qui se serrent.
+            </p>
+            <p>
+              Mon approche est documentaire et bienveillante. Je reste en retrait, j'observe, j'anticipe. Et quand l'émotion arrive, elle est là, capturée, pour durer.
+            </p>
+            <p>
+              Chaque famille, chaque couple est unique. Mon travail, c'est de vous rendre cette unicité.
+            </p>
+          </div>
+          <a href="#contact" class="mt-10 inline-flex items-center gap-2 text-sm font-medium" style="color:var(--color-accent);">
+            Parlons de votre projet <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ PRESTATIONS MARIAGE ══════════ -->
+    <section id="mariages" class="border-b border-line" style="background: var(--color-bg-elev);">
+      <div class="max-w-[1280px] mx-auto px-5 sm:px-8 py-20 sm:py-28 reveal-on-scroll">
+        <div class="grid lg:grid-cols-12 gap-10 mb-14">
+          <div class="lg:col-span-5">
+            <p class="eyebrow mb-4">Mariage</p>
+            <h2 class="font-display italic font-light leading-[1.1]" style="font-size: var(--text-h2);">
+              Votre histoire,<br/><em style="font-style:normal;">racontée en images.</em>
+            </h2>
+          </div>
+          <div class="lg:col-span-6 lg:col-start-7 flex items-end">
+            <p class="text-base leading-relaxed" style="color: var(--color-muted-strong);">
+              Des préparatifs jusqu'à la fête, je suis là pour tout capter : les regards, les silences, les éclats de joie. Un reportage discret et sensible, qui vous ressemble.
+            </p>
+          </div>
+        </div>
+
+        <!-- Galerie mariage asymétrique -->
+        <div class="grid grid-cols-12 gap-2 sm:gap-3">
+          <figure class="col-span-8 aspect-[4/3] overflow-hidden">
+            <img src={hero} alt="Couple de mariés photographiés par Emilie Pruneta" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-700" loading="lazy"/>
+          </figure>
+          <figure class="col-span-4 aspect-[3/4] overflow-hidden">
+            <img src={img2} alt="Détails de mariage, reportage Emilie Pruneta" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-700" loading="lazy"/>
+          </figure>
+          <figure class="col-span-4 aspect-[3/4] overflow-hidden">
+            <img src={img3} alt="Portraits mariés, Corrèze" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-700" loading="lazy"/>
+          </figure>
+          <figure class="col-span-8 aspect-[4/3] overflow-hidden">
+            <img src={img2} alt="Cérémonie de mariage en plein air" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-700" loading="lazy" style="object-position: center 20%;"/>
+          </figure>
+        </div>
+
+        <div class="mt-10 flex justify-center">
+          <a href="#contact" class="cta">Réserver votre date <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ PHOTO BREAK ══════════ -->
+    <div class="relative aspect-[21/8] overflow-hidden border-b border-line">
+      <img src={img3} alt="Emilie Pruneta, photographe de mariage en Corrèze" class="w-full h-full object-cover" loading="lazy" style="object-position: center 35%;"/>
+      <div class="absolute inset-0" style="background: rgba(26,22,18,0.45);"></div>
+      <div class="absolute inset-0 flex items-center justify-center text-center px-6">
+        <blockquote class="font-display italic font-light max-w-2xl" style="font-size: clamp(1.8rem, 4vw, 3.5rem); color: var(--color-fg-inv); line-height: 1.2;">
+          "Je capte ce que vous vivez,<br/>pas ce que vous jouez."
+        </blockquote>
+      </div>
+    </div>
+
+    <!-- ══════════ FAMILLE / GROSSESSE / NAISSANCE ══════════ -->
+    <section id="famille" class="border-b border-line">
+      <div class="max-w-[1280px] mx-auto px-5 sm:px-8 py-20 sm:py-28 reveal-on-scroll">
+        <p class="eyebrow mb-4">Famille · Grossesse · Nouveau-né</p>
+        <h2 class="font-display italic font-light leading-[1.1] mb-12 max-w-2xl" style="font-size: var(--text-h2);">
+          Les premiers regards,<br/><em style="font-style:normal; color:var(--color-muted-strong);">les souvenirs qui durent.</em>
+        </h2>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
+          <figure class="aspect-[3/4] overflow-hidden">
+            <img src={imgFam1} alt="Séance famille en extérieur" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
+          </figure>
+          <figure class="aspect-[3/4] overflow-hidden sm:mt-10">
+            <img src={imgFam2} alt="Séance grossesse, lumière naturelle" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
+          </figure>
+          <figure class="aspect-[3/4] overflow-hidden">
+            <img src={imgFam3} alt="Portrait nouveau-né, Corrèze" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
+          </figure>
+          <figure class="aspect-[3/4] overflow-hidden sm:mt-10">
+            <img src={imgFam4} alt="Famille, séance photo naturelle" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
+          </figure>
+        </div>
+
+        <div class="mt-14 grid sm:grid-cols-3 gap-px border-y border-line" style="background: var(--color-line);">
+          {[
+            { titre: 'Famille', texte: 'Enfants qui courent, câlins improvisés, éclats de rire. Je capture votre famille telle qu\'elle est vraiment.' },
+            { titre: 'Grossesse', texte: 'Un moment suspendu, unique. Des images douces et lumineuses pour chérir cette attente pour toujours.' },
+            { titre: 'Nouveau-né', texte: 'Les premières heures, les premiers gestes. Une séance à domicile, dans la douceur et la tranquillité.' },
+          ].map((p) => (
+            <div class="py-10 px-8" style="background: var(--color-bg);">
+              <h3 class="font-display italic text-2xl mb-3">{p.titre}</h3>
+              <p class="text-sm leading-relaxed" style="color: var(--color-muted-strong);">{p.texte}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-10 flex justify-center">
+          <a href="#contact" class="cta">Réserver une séance <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ TEMOIGNAGES ══════════ -->
+    <section class="border-b border-line" style="background: var(--color-bg-elev);">
+      <div class="max-w-[1280px] mx-auto px-5 sm:px-8 py-20 sm:py-28 reveal-on-scroll">
+        <p class="eyebrow mb-12 text-center">Ils me font confiance</p>
+        <div class="grid sm:grid-cols-3 gap-px" style="background: var(--color-line);">
+          {temoignages.map((t) => (
+            <blockquote class="p-8 sm:p-10" style="background: var(--color-bg);">
+              <p class="font-display italic text-xl sm:text-2xl font-light leading-relaxed mb-8" style="color: var(--color-muted-strong);">
+                "{t.texte}"
+              </p>
+              <footer>
+                <p class="font-medium text-sm">{t.auteur}</p>
+                <p class="text-xs mt-1" style="color: var(--color-muted);">{t.detail}</p>
+              </footer>
+            </blockquote>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ COMMENT CA SE PASSE ══════════ -->
+    <section class="border-b border-line">
+      <div class="max-w-[1280px] mx-auto px-5 sm:px-8 py-20 sm:py-28 reveal-on-scroll">
+        <p class="eyebrow mb-4">Le déroulement</p>
+        <h2 class="font-display italic font-light leading-[1.1] mb-14" style="font-size: var(--text-h2);">
+          Simple, humain,<br/><em style="font-style:normal; color:var(--color-muted-strong);">sans prise de tête.</em>
+        </h2>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px border-y border-line" style="background: var(--color-line);">
+          {etapes.map((e) => (
+            <div class="py-10 px-8" style="background: var(--color-bg);">
+              <p class="font-display italic text-5xl font-light mb-6" style="color: var(--color-blush);">{e.n}</p>
+              <h3 class="font-medium text-base mb-3">{e.titre}</h3>
+              <p class="text-sm leading-relaxed" style="color: var(--color-muted-strong);">{e.texte}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ CONTACT / CTA FINAL ══════════ -->
+    <section id="contact" class="relative overflow-hidden border-b border-line" style="background: var(--color-bg-dark);">
+      <div class="absolute pointer-events-none" style="inset:0; background: radial-gradient(ellipse at 60% 50%, rgba(196,129,106,0.12) 0%, transparent 70%);" aria-hidden="true"></div>
+
+      <div class="relative max-w-[1280px] mx-auto px-5 sm:px-8 py-24 sm:py-32 reveal-on-scroll">
+        <div class="grid lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-5">
+            <p class="eyebrow mb-5" style="color: rgba(250,248,245,0.45);">Contact</p>
+            <h2 class="font-display italic font-light leading-[1.1] mb-6" style="font-size: var(--text-h2); color: var(--color-fg-inv);">
+              Votre projet<br/><em style="font-style:normal; color: var(--color-accent);">mérite d'exister.</em>
+            </h2>
+            <p class="text-base leading-relaxed mb-10" style="color: rgba(250,248,245,0.60);">
+              Parlez-moi de votre mariage, de votre famille, de votre grossesse. Je vous réponds sous 48h pour qu'on construise quelque chose de beau ensemble.
+            </p>
+            <div class="space-y-3">
+              <a href="mailto:emilie@emiliepruneta.com" class="flex items-center gap-3 text-sm transition-colors" style="color: rgba(250,248,245,0.70);">
+                <span style="color: var(--color-accent);">→</span> emilie@emiliepruneta.com
+              </a>
+              <p class="text-sm" style="color: rgba(250,248,245,0.45);">Zone : Corrèze · Lot · Dordogne · France entière pour les mariages</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 lg:col-start-7">
+            <form class="space-y-5" name="contact" method="POST" data-netlify="true" action="/">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs mb-2" style="color: rgba(250,248,245,0.45); letter-spacing:0.1em; text-transform:uppercase;">Prénom</label>
+                  <input type="text" name="prenom" required class="w-full px-4 py-3 text-sm outline-none focus:ring-1 transition-all" style="background: rgba(250,248,245,0.06); border: 1px solid rgba(250,248,245,0.14); color: var(--color-fg-inv); border-radius: 1px;" placeholder="Votre prénom"/>
+                </div>
+                <div>
+                  <label class="block text-xs mb-2" style="color: rgba(250,248,245,0.45); letter-spacing:0.1em; text-transform:uppercase;">Email</label>
+                  <input type="email" name="email" required class="w-full px-4 py-3 text-sm outline-none transition-all" style="background: rgba(250,248,245,0.06); border: 1px solid rgba(250,248,245,0.14); color: var(--color-fg-inv); border-radius: 1px;" placeholder="votre@email.fr"/>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs mb-2" style="color: rgba(250,248,245,0.45); letter-spacing:0.1em; text-transform:uppercase;">Type de projet</label>
+                <select name="projet" class="w-full px-4 py-3 text-sm outline-none transition-all" style="background: rgba(250,248,245,0.06); border: 1px solid rgba(250,248,245,0.14); color: var(--color-fg-inv); border-radius: 1px;">
+                  <option value="" style="background:#1a1612;">Choisir...</option>
+                  <option value="mariage" style="background:#1a1612;">Mariage</option>
+                  <option value="famille" style="background:#1a1612;">Famille</option>
+                  <option value="grossesse" style="background:#1a1612;">Grossesse</option>
+                  <option value="naissance" style="background:#1a1612;">Nouveau-né</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs mb-2" style="color: rgba(250,248,245,0.45); letter-spacing:0.1em; text-transform:uppercase;">Votre message</label>
+                <textarea name="message" rows="4" class="w-full px-4 py-3 text-sm outline-none resize-none transition-all" style="background: rgba(250,248,245,0.06); border: 1px solid rgba(250,248,245,0.14); color: var(--color-fg-inv); border-radius: 1px;" placeholder="Parlez-moi de votre projet, votre date, votre lieu..."></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-4 text-sm font-medium tracking-widest uppercase transition-all" style="background: var(--color-accent); color: #fff; border-radius: 1px; letter-spacing: 0.15em;">
+                Envoyer ma demande
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>

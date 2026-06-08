@@ -1,0 +1,70 @@
+---
+---
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-bg/70 border-b border-line">
+  <nav class="max-w-[1280px] mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+
+    <a href="#top" class="font-display italic text-xl tracking-wide" style="color:var(--color-fg);" aria-label="Emilie Pruneta, retour en haut">
+      Emilie Pruneta
+    </a>
+
+    <div class="hidden md:flex items-center gap-8 text-[13px]" style="color:var(--color-muted);">
+      <a href="#mariages" class="hover:text-fg transition-colors">Mariage</a>
+      <a href="#famille" class="hover:text-fg transition-colors">Famille</a>
+      <a href="#apropos" class="hover:text-fg transition-colors">À propos</a>
+      <a href="#contact" class="hover:text-fg transition-colors">Contact</a>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <a
+        href="#contact"
+        class="hidden sm:inline-flex items-center gap-2 text-[13px] font-medium border border-line-strong rounded-sm px-4 py-2 hover:border-accent hover:text-accent transition-colors"
+      >
+        Demander un devis
+      </a>
+      <button
+        id="nav-toggle"
+        class="md:hidden flex flex-col justify-center gap-[5px] w-8 h-8 -mr-1 shrink-0"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="nav-mobile"
+      >
+        <span class="nav-bar block h-px w-5 bg-fg origin-center transition-all duration-200"></span>
+        <span class="nav-bar block h-px w-5 bg-fg origin-center transition-all duration-200 opacity-100"></span>
+        <span class="nav-bar block h-px w-5 bg-fg origin-center transition-all duration-200"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div id="nav-mobile" class="hidden border-t border-line bg-bg" role="navigation" aria-label="Menu mobile">
+    <ul class="max-w-[1280px] mx-auto px-5 py-2 divide-y divide-line">
+      <li><a href="#mariages" class="mobile-link">Mariage</a></li>
+      <li><a href="#famille" class="mobile-link">Famille</a></li>
+      <li><a href="#apropos" class="mobile-link">À propos</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<style>
+  .mobile-link { display: block; padding: 0.875rem 0; font-size: 1rem; color: var(--color-muted-strong); transition: color 150ms ease; }
+  .mobile-link:hover { color: var(--color-fg); }
+  #nav-toggle[aria-expanded="true"] .nav-bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  #nav-toggle[aria-expanded="true"] .nav-bar:nth-child(2) { opacity: 0; }
+  #nav-toggle[aria-expanded="true"] .nav-bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+</style>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const menu   = document.getElementById('nav-mobile');
+  toggle?.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    menu?.classList.toggle('hidden', isOpen);
+  });
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      toggle?.setAttribute('aria-expanded', 'false');
+      menu.classList.add('hidden');
+    });
+  });
+</script>
