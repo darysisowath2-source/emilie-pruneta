@@ -5,20 +5,21 @@ import Footer from '../components/Footer.astro'
 
 const BASE = 'https://static.wixstatic.com/media'
 
-// -- Mariage (scrapé depuis emiliepruneta.com/mariages) --
-const heroMar  = `${BASE}/054844_ea8fc02bdcbb4ae797f76da85ffe839c~mv2.jpg/v1/fill/w_1800,h_1000,fp_0.5_0.4,q_90,enc_avif,quality_auto/ep.jpg`
-const mar1     = `${BASE}/054844_67e6fd66ba8241b38079f72bd269d106~mv2.jpg/v1/fill/w_900,h_1200,al_c,q_90,enc_avif,quality_auto/ep.jpg`
-const mar2     = `${BASE}/054844_2233cd8462a141478ca6212d5de434da~mv2.jpg/v1/fill/w_1200,h_800,fp_0.48_0.33,q_90,enc_avif,quality_auto/ep.jpg`
-const mar3     = `${BASE}/054844_5ae3b9ef413b4371be0a00736cb5eba0~mv2.jpg/v1/fill/w_900,h_1200,al_c,q_90,enc_avif,quality_auto/ep.jpg`
-const marPano  = `${BASE}/054844_60ff236a7da44164967ae337c05163d1~mv2.jpg/v1/fill/w_1800,h_700,fp_0.5_0.4,q_90,enc_avif,quality_auto/ep.jpg`
+// -- Mariage (vraies photos, recadrages vérifiés visuellement) --
+const heroMar  = `${BASE}/054844_2233cd8462a141478ca6212d5de434da~mv2.jpg/v1/fill/w_1900,h_1100,fp_0.5_0.32,q_90,enc_avif,quality_auto/ep.jpg` // couple, lumière dorée
+const mar1     = `${BASE}/054844_67e6fd66ba8241b38079f72bd269d106~mv2.jpg/v1/fill/w_1200,h_800,fp_0.5_0.45,q_90,enc_avif,quality_auto/ep.jpg`  // sortie de mairie N&B (paysage)
+const mar2     = `${BASE}/054844_ea8fc02bdcbb4ae797f76da85ffe839c~mv2.jpg/v1/fill/w_700,h_933,fp_0.55_0.45,q_90,enc_avif,quality_auto/ep.jpg`   // dentelle (portrait)
+const mar3     = `${BASE}/054844_5ae3b9ef413b4371be0a00736cb5eba0~mv2.jpg/v1/fill/w_700,h_933,fp_0.6_0.5,q_90,enc_avif,quality_auto/ep.jpg`     // vue plongeante N&B (portrait)
+const mar4     = `${BASE}/054844_38bf12b74678461f91afc0e948e2ebb4~mv2.jpg/v1/fill/w_1200,h_800,fp_0.5_0.5,q_90,enc_avif,quality_auto/ep.jpg`   // décoration fleurs (paysage)
+const marPano  = `${BASE}/054844_60ff236a7da44164967ae337c05163d1~mv2.jpg/v1/fill/w_1900,h_750,fp_0.5_0.45,q_90,enc_avif,quality_auto/ep.jpg` // mains enlacées N&B
 
-// -- Famille · Grossesse · Nouveau-né (scrapé depuis emiliepruneta.com/famille) --
-const fam1     = `${BASE}/054844_249b6158106f40bd89930907f5d7557d~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`
-const fam2     = `${BASE}/054844_e9140ae01f9e40ffae2ae23a8cbe2b35~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`
-const fam3     = `${BASE}/054844_43875514d9a3457686bbce9471ccae17~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`
-const fam4     = `${BASE}/054844_0c16d42520b5438fbbfc4a482b563b3d~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`
-const fam5     = `${BASE}/054844_5b2031a61747400f84cee04592aba372~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`
-const fam6     = `${BASE}/054844_0ae941c851624fb8b4b67e14913d2e90~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`
+// -- Famille · Grossesse · Nouveau-né (vraies photos, sans collages) --
+const fam1     = `${BASE}/054844_249b6158106f40bd89930907f5d7557d~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`   // papa + petite fille (couleur)
+const fam2     = `${BASE}/054844_a292a47f2c3f4a2a9407d6fe8de943cf~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`   // menotte nouveau-né (crème)
+const fam3     = `${BASE}/054844_43875514d9a3457686bbce9471ccae17~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`   // grand frère + nouveau-né N&B
+const fam4     = `${BASE}/054844_0c16d42520b5438fbbfc4a482b563b3d~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`   // grossesse N&B
+const fam5     = `${BASE}/054844_5b2031a61747400f84cee04592aba372~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`   // maman + nouveau-né N&B
+const fam6     = `${BASE}/054844_74017276748a499890a0f988b4b89648~mv2.jpg/v1/fill/w_700,h_933,al_c,q_90,enc_avif,quality_auto/ep.jpg`   // grossesse N&B (intérieur)
 
 // -- Portrait Emilie (photo locale fournie par la cliente) --
 const imgEmilie = '/images/emilie.avif'
@@ -122,11 +123,11 @@ const tarifs = [
     <!-- ══════════ HERO ══════════ -->
     <section class="relative h-[82vh] flex flex-col overflow-hidden border-b border-line">
       <figure class="absolute inset-0">
-        <img src={heroMar} alt="Mariage photographié par Emilie Pruneta en Corrèze" class="w-full h-full object-cover" loading="eager" fetchpriority="high" style="object-position: center 40%;"/>
-        <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(26,22,18,0.18) 0%, rgba(26,22,18,0.62) 100%);"></div>
+        <img src={heroMar} alt="Couple de mariés, front contre front dans la lumière dorée, par Emilie Pruneta en Corrèze" class="w-full h-full object-cover" loading="eager" fetchpriority="high" style="object-position: center 28%;"/>
+        <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(26,22,18,0.30) 0%, rgba(26,22,18,0.12) 38%, rgba(26,22,18,0.78) 100%);"></div>
       </figure>
 
-      <div class="relative flex-1 flex flex-col justify-center max-w-[1280px] mx-auto px-5 sm:px-8 w-full">
+      <div class="relative flex-1 flex flex-col justify-end pb-14 sm:pb-20 max-w-[1280px] mx-auto px-5 sm:px-8 w-full">
         <div class="hero-item mb-5 flex items-center gap-3" style="--hi:0">
           <span class="dot" style="background:#faf8f5; opacity:0.6;"></span>
           <span class="eyebrow" style="color: rgba(250,248,245,0.65);">Photographe · Corrèze · Depuis 2012</span>
@@ -204,16 +205,16 @@ const tarifs = [
         <!-- Galerie mariage asymétrique -->
         <div class="grid grid-cols-12 gap-2 sm:gap-3">
           <figure class="col-span-8 aspect-[4/3] overflow-hidden">
-            <img src={mar2} alt="Couple de mariés, reportage Emilie Pruneta Corrèze" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-700" loading="lazy"/>
+            <img src={mar1} alt="Sortie de cérémonie sous les bulles, reportage de mariage en Corrèze" class="w-full h-full object-cover" loading="lazy"/>
           </figure>
           <figure class="col-span-4 aspect-[3/4] overflow-hidden">
-            <img src={mar1} alt="Portrait marié, Emilie Pruneta photographe" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-700" loading="lazy"/>
+            <img src={mar2} alt="Détail de la robe en dentelle, préparatifs de mariage" class="w-full h-full object-cover" loading="lazy"/>
           </figure>
           <figure class="col-span-4 aspect-[3/4] overflow-hidden">
-            <img src={mar3} alt="Mariage en Corrèze, photo naturelle" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-700" loading="lazy"/>
+            <img src={mar3} alt="Mariée vue de haut, robe déployée, photo artistique" class="w-full h-full object-cover" loading="lazy"/>
           </figure>
           <figure class="col-span-8 aspect-[4/3] overflow-hidden">
-            <img src={mar2} alt="Cérémonie de mariage, reportage discret" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-700" loading="lazy" style="object-position: center 60%;"/>
+            <img src={mar4} alt="Décoration florale de mariage, détails du jour J" class="w-full h-full object-cover" loading="lazy"/>
           </figure>
         </div>
 
@@ -264,22 +265,22 @@ const tarifs = [
         <!-- Grille famille -->
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
           <figure class="aspect-[3/4] overflow-hidden">
-            <img src={fam1} alt="Séance famille naturelle, Emilie Pruneta" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
+            <img src={fam1} alt="Papa qui soulève sa fille en riant, séance famille en extérieur" class="w-full h-full object-cover" loading="lazy"/>
           </figure>
           <figure class="aspect-[3/4] overflow-hidden sm:mt-10">
-            <img src={fam2} alt="Séance grossesse lumière naturelle, Corrèze" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
+            <img src={fam2} alt="Menotte d'un nouveau-né, séance naissance à domicile" class="w-full h-full object-cover" loading="lazy"/>
           </figure>
           <figure class="aspect-[3/4] overflow-hidden">
-            <img src={fam3} alt="Famille, photo authentique, Brive" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
+            <img src={fam3} alt="Grand frère qui embrasse le nouveau-né, séance naissance N&B" class="w-full h-full object-cover" loading="lazy"/>
           </figure>
           <figure class="aspect-[3/4] overflow-hidden sm:mt-[-5rem]">
-            <img src={fam4} alt="Nouveau-né, premiers instants, Corrèze" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
+            <img src={fam4} alt="Séance grossesse en lumière naturelle, Corrèze" class="w-full h-full object-cover" loading="lazy"/>
           </figure>
           <figure class="aspect-[3/4] overflow-hidden">
-            <img src={fam5} alt="Séance bébé à domicile" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
+            <img src={fam5} alt="Maman et son nouveau-né, premiers instants à domicile" class="w-full h-full object-cover" loading="lazy"/>
           </figure>
           <figure class="aspect-[3/4] overflow-hidden sm:mt-10">
-            <img src={fam6} alt="Famille, moments de vie, Emilie Pruneta" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" loading="lazy"/>
+            <img src={fam6} alt="Séance grossesse à domicile, photo intimiste" class="w-full h-full object-cover" loading="lazy"/>
           </figure>
         </div>
 
